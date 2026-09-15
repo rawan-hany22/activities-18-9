@@ -35,7 +35,7 @@
 
         <!-- الهيدر مع صورة الشعار -->
         <div class="p-6 text-center border-b border-sky-100 dark:border-slate-800 space-y-3 pt-8">
-            <!-- الشعار: logo.png GitHub -->
+            <!-- الشعار -->
             <img src="logo.png" alt="صناع الحياة المنوفية" class="h-20 sm:h-24 mx-auto object-contain">
             
             <div class="pt-2 space-y-1">
@@ -101,11 +101,11 @@
                 </label>
                 <div class="grid grid-cols-2 gap-3">
                     <label class="flex items-center justify-center p-3 border border-sky-200 dark:border-slate-700 rounded-2xl cursor-pointer bg-sky-50/30 dark:bg-slate-800/40 hover:bg-sky-50 dark:hover:bg-slate-800 transition has-[:checked]:border-sky-500 dark:has-[:checked]:border-sky-400 has-[:checked]:bg-sky-100/80 dark:has-[:checked]:bg-sky-900/40">
-                        <input type="radio" name="isMedical" value="yes" required class="hidden">
+                        <input type="radio" name="isMedical" value="نعم" required class="hidden">
                         <span class="font-bold text-sm text-sky-900 dark:text-sky-200">نعم</span>
                     </label>
                     <label class="flex items-center justify-center p-3 border border-sky-200 dark:border-slate-700 rounded-2xl cursor-pointer bg-sky-50/30 dark:bg-slate-800/40 hover:bg-sky-50 dark:hover:bg-slate-800 transition has-[:checked]:border-sky-500 dark:has-[:checked]:border-sky-400 has-[:checked]:bg-sky-100/80 dark:has-[:checked]:bg-sky-900/40">
-                        <input type="radio" name="isMedical" value="no" required class="hidden">
+                        <input type="radio" name="isMedical" value="لا" required class="hidden">
                         <span class="font-bold text-sm text-sky-900 dark:text-sky-200">لا</span>
                     </label>
                 </div>
@@ -118,11 +118,11 @@
                 </label>
                 <div class="grid grid-cols-2 gap-3">
                     <label class="flex items-center justify-center p-3 border border-sky-200 dark:border-slate-700 rounded-2xl cursor-pointer bg-sky-50/30 dark:bg-slate-800/40 hover:bg-sky-50 dark:hover:bg-slate-800 transition has-[:checked]:border-sky-500 dark:has-[:checked]:border-sky-400 has-[:checked]:bg-sky-100/80 dark:has-[:checked]:bg-sky-900/40">
-                        <input type="radio" name="canMeasure" value="yes" required class="hidden">
+                        <input type="radio" name="canMeasure" value="نعم" required class="hidden">
                         <span class="font-bold text-sm text-sky-900 dark:text-sky-200">نعم</span>
                     </label>
                     <label class="flex items-center justify-center p-3 border border-sky-200 dark:border-slate-700 rounded-2xl cursor-pointer bg-sky-50/30 dark:bg-slate-800/40 hover:bg-sky-50 dark:hover:bg-slate-800 transition has-[:checked]:border-sky-500 dark:has-[:checked]:border-sky-400 has-[:checked]:bg-sky-100/80 dark:has-[:checked]:bg-sky-900/40">
-                        <input type="radio" name="canMeasure" value="no" required class="hidden">
+                        <input type="radio" name="canMeasure" value="لا" required class="hidden">
                         <span class="font-bold text-sm text-sky-900 dark:text-sky-200">لا</span>
                     </label>
                 </div>
@@ -130,35 +130,47 @@
 
             <hr class="border-sky-100 dark:border-slate-800 my-6">
 
-            <!-- مجالات المشاركة -->
+            <!-- الأنشطة السابقة: إمكانية اختيار أكثر من نشاط -->
             <div>
-                <label class="block text-sm font-bold text-sky-950 dark:text-sky-200 mb-3">
-                    تشارك في إيه في القافلة؟ <span class="text-red-400">*</span>
+                <label class="block text-sm font-bold text-sky-950 dark:text-sky-200 mb-1">
+                    شاركت في إيه من الأنشطة دي قبل كده؟
                 </label>
-                <div class="grid grid-cols-2 gap-3">
+                <p class="text-xs text-sky-600 dark:text-sky-400/80 mb-3">يمكنك اختيار أكثر من نشاط</p>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     <label class="flex items-center p-3 border border-sky-200 dark:border-slate-700 rounded-2xl cursor-pointer bg-sky-50/30 dark:bg-slate-800/40 hover:bg-sky-50 dark:hover:bg-slate-800 transition has-[:checked]:border-sky-500 dark:has-[:checked]:border-sky-400 has-[:checked]:bg-sky-100/80 dark:has-[:checked]:bg-sky-900/40">
-                        <input type="radio" name="role" value="استقبال" required class="w-4 h-4 text-sky-600 focus:ring-sky-400">
-                        <span class="mr-2.5 text-sm font-bold text-sky-900 dark:text-sky-200">استقبال</span>
+                        <input type="checkbox" name="activities" value="استقبال (قافلة طبية)" class="w-4 h-4 text-sky-600 rounded focus:ring-sky-400">
+                        <span class="mr-2.5 text-sm font-bold text-sky-900 dark:text-sky-200">استقبال (قافلة طبية)</span>
                     </label>
+
                     <label class="flex items-center p-3 border border-sky-200 dark:border-slate-700 rounded-2xl cursor-pointer bg-sky-50/30 dark:bg-slate-800/40 hover:bg-sky-50 dark:hover:bg-slate-800 transition has-[:checked]:border-sky-500 dark:has-[:checked]:border-sky-400 has-[:checked]:bg-sky-100/80 dark:has-[:checked]:bg-sky-900/40">
-                        <input type="radio" name="role" value="تنظيم" required class="w-4 h-4 text-sky-600 focus:ring-sky-400">
-                        <span class="mr-2.5 text-sm font-bold text-sky-900 dark:text-sky-200">تنظيم</span>
+                        <input type="checkbox" name="activities" value="تنظيم (قافلة طبية)" class="w-4 h-4 text-sky-600 rounded focus:ring-sky-400">
+                        <span class="mr-2.5 text-sm font-bold text-sky-900 dark:text-sky-200">تنظيم (قافلة طبية)</span>
                     </label>
+
                     <label class="flex items-center p-3 border border-sky-200 dark:border-slate-700 rounded-2xl cursor-pointer bg-sky-50/30 dark:bg-slate-800/40 hover:bg-sky-50 dark:hover:bg-slate-800 transition has-[:checked]:border-sky-500 dark:has-[:checked]:border-sky-400 has-[:checked]:bg-sky-100/80 dark:has-[:checked]:bg-sky-900/40">
-                        <input type="radio" name="role" value="صيدليه" required class="w-4 h-4 text-sky-600 focus:ring-sky-400">
-                        <span class="mr-2.5 text-sm font-bold text-sky-900 dark:text-sky-200">صيدليه</span>
+                        <input type="checkbox" name="activities" value="صيدلية (قافلة طبية)" class="w-4 h-4 text-sky-600 rounded focus:ring-sky-400">
+                        <span class="mr-2.5 text-sm font-bold text-sky-900 dark:text-sky-200">صيدلية (قافلة طبية)</span>
                     </label>
+
                     <label class="flex items-center p-3 border border-sky-200 dark:border-slate-700 rounded-2xl cursor-pointer bg-sky-50/30 dark:bg-slate-800/40 hover:bg-sky-50 dark:hover:bg-slate-800 transition has-[:checked]:border-sky-500 dark:has-[:checked]:border-sky-400 has-[:checked]:bg-sky-100/80 dark:has-[:checked]:bg-sky-900/40">
-                        <input type="radio" name="role" value="توعية" required class="w-4 h-4 text-sky-600 focus:ring-sky-400">
-                        <span class="mr-2.5 text-sm font-bold text-sky-900 dark:text-sky-200">توعية</span>
+                        <input type="checkbox" name="activities" value="توعية (قافلة طبية)" class="w-4 h-4 text-sky-600 rounded focus:ring-sky-400">
+                        <span class="mr-2.5 text-sm font-bold text-sky-900 dark:text-sky-200">توعية (قافلة طبية)</span>
                     </label>
+
                     <label class="flex items-center p-3 border border-sky-200 dark:border-slate-700 rounded-2xl cursor-pointer bg-sky-50/30 dark:bg-slate-800/40 hover:bg-sky-50 dark:hover:bg-slate-800 transition has-[:checked]:border-sky-500 dark:has-[:checked]:border-sky-400 has-[:checked]:bg-sky-100/80 dark:has-[:checked]:bg-sky-900/40">
-                        <input type="radio" name="role" value="معرض" required class="w-4 h-4 text-sky-600 focus:ring-sky-400">
+                        <input type="checkbox" name="activities" value="معرض" class="w-4 h-4 text-sky-600 rounded focus:ring-sky-400">
                         <span class="mr-2.5 text-sm font-bold text-sky-900 dark:text-sky-200">معرض</span>
                     </label>
+
                     <label class="flex items-center p-3 border border-sky-200 dark:border-slate-700 rounded-2xl cursor-pointer bg-sky-50/30 dark:bg-slate-800/40 hover:bg-sky-50 dark:hover:bg-slate-800 transition has-[:checked]:border-sky-500 dark:has-[:checked]:border-sky-400 has-[:checked]:bg-sky-100/80 dark:has-[:checked]:bg-sky-900/40">
-                        <input type="radio" name="role" value="أبحاث" required class="w-4 h-4 text-sky-600 focus:ring-sky-400">
+                        <input type="checkbox" name="activities" value="أبحاث" class="w-4 h-4 text-sky-600 rounded focus:ring-sky-400">
                         <span class="mr-2.5 text-sm font-bold text-sky-900 dark:text-sky-200">أبحاث</span>
+                    </label>
+
+                    <label class="flex items-center p-3 border border-sky-200 dark:border-slate-700 rounded-2xl cursor-pointer bg-sky-50/30 dark:bg-slate-800/40 hover:bg-sky-50 dark:hover:bg-slate-800 transition has-[:checked]:border-sky-500 dark:has-[:checked]:border-sky-400 has-[:checked]:bg-sky-100/80 dark:has-[:checked]:bg-sky-900/40 sm:col-span-2">
+                        <input type="checkbox" name="activities" value="دوي" class="w-4 h-4 text-sky-600 rounded focus:ring-sky-400">
+                        <span class="mr-2.5 text-sm font-bold text-sky-900 dark:text-sky-200">دوي</span>
                     </label>
                 </div>
             </div>
@@ -189,7 +201,7 @@
         </form>
     </div>
 
-    <!-- نافذة نجاح الإرسال -->
+    <!-- نافذة نجاح الإرسال المشتملة على رابط جروب الواتساب -->
     <div id="successModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm hidden flex items-center justify-center p-4 z-50">
         <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-7 max-w-sm w-full text-center shadow-2xl space-y-4 border border-sky-100 dark:border-slate-800">
             
@@ -202,8 +214,17 @@
                 نتمنى إنه يكون يوم لذيذ وتجربة لذيذة عليك وتسيب أثر طيب 🤍
             </p>
 
+            <!-- زر جروب الواتساب -->
+            <div class="pt-2">
+                <a href="https://chat.whatsapp.com/GFUzqgKvbcn88Odr9RA9tT?s=cl&p=a&mlu=4&ilr=4" target="_blank" rel="noopener noreferrer" 
+                   class="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3 px-4 rounded-xl text-xs transition flex items-center justify-center gap-2 shadow-md">
+                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                    <span>انضم لجروب الواتساب الخاص بالقافلة</span>
+                </a>
+            </div>
+
             <button onclick="document.getElementById('successModal').classList.add('hidden')"
-                    class="w-full bg-sky-500 hover:bg-sky-600 text-white font-bold py-3 rounded-xl text-xs transition mt-2 shadow-md">
+                    class="w-full bg-sky-100 dark:bg-slate-800 text-sky-950 dark:text-sky-200 font-bold py-2.5 rounded-xl text-xs transition border border-sky-200/50 dark:border-slate-700 mt-1">
                 إغلاق
             </button>
 
@@ -211,11 +232,11 @@
     </div>
 
     <script>
-        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwmaMkSonVcBbzUX5Zb7ADrPS9bohhOSFpCvOVR84y-tiLARedNTIO0-i0nEFDGutedWw/exec"; 
+        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwo5EFCdCX52vxvdjktf_u-fmzWFkRwgdiX5pCRZ5-JCwmN9LVLaStT8FLRCTpEbscaLw/exec"; 
         let fileBase64 = null;
         let fileNameVal = "";
 
-        // التبديل بين الوضع المظلم والمضيء (أيقونة فقط)
+        // التبديل بين الوضع المظلم والمضيء
         function toggleTheme() {
             const html = document.documentElement;
             const themeIcon = document.getElementById('themeIcon');
@@ -233,7 +254,6 @@
             }
         }
 
-        // الحفاظ على الخيار المفضل للمستخدم
         if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
             document.documentElement.classList.add('dark');
             const themeIcon = document.getElementById('themeIcon');
@@ -280,11 +300,10 @@
                 return;
             }
 
-            const selectedRole = document.querySelector('input[name="role"]:checked')?.value;
-            if (!selectedRole) {
-                alert('برجاء اختيار مجال مشاركة واحد.');
-                return;
-            }
+            // تجميع الأنشطة المختارة
+            const selectedActivities = Array.from(document.querySelectorAll('input[name="activities"]:checked'))
+                                            .map(cb => cb.value)
+                                            .join(', ');
 
             const submitBtn = document.getElementById('submitBtn');
             const originalBtnHtml = submitBtn.innerHTML;
@@ -295,9 +314,9 @@
                 fullName: document.getElementById('fullName').value,
                 phoneNumber: document.getElementById('phoneNumber').value,
                 nationalId: idInput.value,
-                isMedical: document.querySelector('input[name="isMedical"]:checked')?.value === 'yes' ? 'نعم' : 'لا',
-                canMeasure: document.querySelector('input[name="canMeasure"]:checked')?.value === 'yes' ? 'نعم' : 'لا',
-                role: selectedRole,
+                isMedical: document.querySelector('input[name="isMedical"]:checked')?.value || '',
+                canMeasure: document.querySelector('input[name="canMeasure"]:checked')?.value || '',
+                activities: selectedActivities,
                 fileData: fileBase64,
                 fileName: fileNameVal
             };
