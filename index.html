@@ -35,15 +35,12 @@
 
         <!-- الهيدر مع صورة الشعار -->
         <div class="p-6 text-center border-b border-sky-100 dark:border-slate-800 space-y-3 pt-8">
-            <!-- الشعار -->
             <img src="logo.png" alt="صناع الحياة المنوفية" class="h-20 sm:h-24 mx-auto object-contain">
             
             <div class="pt-2 space-y-1">
-                <!-- العنوان الرئيسي -->
                 <h1 class="text-2xl sm:text-3xl font-bold text-sky-950 dark:text-sky-400 tracking-wide">
                     قافلة 18/9 ✨
                 </h1>
-                <!-- العنوان الفرعي -->
                 <p class="text-sky-600 dark:text-sky-300 text-base sm:text-lg font-bold">
                     استمارة تسجيل المتطوعين
                 </p>
@@ -77,6 +74,18 @@
                 </div>
             </div>
 
+            <!-- السؤال الجديد: رقم تليفون الأهل للطوارئ -->
+            <div>
+                <label for="emergencyPhone" class="block text-sm font-bold text-sky-950 dark:text-sky-200 mb-2">
+                    رقم تليفون آخر للأهل لظروف الطوارئ <span class="text-red-400">*</span>
+                </label>
+                <div class="relative">
+                    <input type="tel" id="emergencyPhone" name="emergencyPhone" autocomplete="off" required placeholder="01XXXXXXXXX" dir="ltr"
+                           class="w-full text-right pr-10 pl-4 py-3 rounded-2xl border border-sky-200 dark:border-slate-700 bg-sky-50/40 dark:bg-slate-800/60 focus:bg-white dark:focus:bg-slate-800 focus:ring-2 focus:ring-sky-400 focus:border-sky-400 text-slate-700 dark:text-slate-100 text-sm transition">
+                    <i class="fa-solid fa-phone-volume absolute right-3.5 top-3.5 text-sky-400"></i>
+                </div>
+            </div>
+
             <!-- الرقم القومي -->
             <div>
                 <label for="nationalId" class="block text-sm font-bold text-sky-950 dark:text-sky-200 mb-1">
@@ -94,7 +103,7 @@
 
             <hr class="border-sky-100 dark:border-slate-800 my-6">
 
-            <!-- السؤال الأول: المجال الطبي -->
+            <!-- المجال الطبي -->
             <div>
                 <label class="block text-sm font-bold text-sky-950 dark:text-sky-200 mb-3">
                     هل أنت في المجال الطبي؟ <span class="text-red-400">*</span>
@@ -111,7 +120,7 @@
                 </div>
             </div>
 
-            <!-- السؤال الثاني: قياس الضغط والسكر -->
+            <!-- قياس الضغط والسكر -->
             <div>
                 <label class="block text-sm font-bold text-sky-950 dark:text-sky-200 mb-3">
                     بتعرف تقيس ضغط وسكر؟ <span class="text-red-400">*</span>
@@ -130,7 +139,7 @@
 
             <hr class="border-sky-100 dark:border-slate-800 my-6">
 
-            <!-- الأنشطة السابقة: إمكانية اختيار أكثر من نشاط -->
+            <!-- الأنشطة السابقة -->
             <div>
                 <label class="block text-sm font-bold text-sky-950 dark:text-sky-200 mb-1">
                     شاركت في إيه من الأنشطة دي قبل كده؟
@@ -201,7 +210,7 @@
         </form>
     </div>
 
-    <!-- نافذة نجاح الإرسال المشتملة على رابط جروب الواتساب -->
+    <!-- نافذة نجاح الإرسال -->
     <div id="successModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm hidden flex items-center justify-center p-4 z-50">
         <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-7 max-w-sm w-full text-center shadow-2xl space-y-4 border border-sky-100 dark:border-slate-800">
             
@@ -214,7 +223,6 @@
                 نتمنى إنه يكون يوم لذيذ وتجربة لذيذة عليك وتسيب أثر طيب 🤍
             </p>
 
-            <!-- زر جروب الواتساب -->
             <div class="pt-2">
                 <a href="https://chat.whatsapp.com/GFUzqgKvbcn88Odr9RA9tT?s=cl&p=a&mlu=4&ilr=4" target="_blank" rel="noopener noreferrer" 
                    class="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3 px-4 rounded-xl text-xs transition flex items-center justify-center gap-2 shadow-md">
@@ -236,7 +244,6 @@
         let fileBase64 = null;
         let fileNameVal = "";
 
-        // التبديل بين الوضع المظلم والمضيء
         function toggleTheme() {
             const html = document.documentElement;
             const themeIcon = document.getElementById('themeIcon');
@@ -300,7 +307,6 @@
                 return;
             }
 
-            // تجميع الأنشطة المختارة
             const selectedActivities = Array.from(document.querySelectorAll('input[name="activities"]:checked'))
                                             .map(cb => cb.value)
                                             .join(', ');
@@ -313,6 +319,7 @@
             const formData = {
                 fullName: document.getElementById('fullName').value,
                 phoneNumber: document.getElementById('phoneNumber').value,
+                emergencyPhone: document.getElementById('emergencyPhone').value,
                 nationalId: idInput.value,
                 isMedical: document.querySelector('input[name="isMedical"]:checked')?.value || '',
                 canMeasure: document.querySelector('input[name="canMeasure"]:checked')?.value || '',
