@@ -23,23 +23,23 @@
 </head>
 <body class="bg-gradient-to-br from-sky-100 via-blue-50 to-orange-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 text-slate-800 dark:text-slate-100 min-h-screen py-8 px-4 sm:px-6 lg:px-8 transition-colors duration-300">
 
-    <div class="max-w-xl mx-auto bg-white/90 dark:bg-slate-900/90 backdrop-blur-md rounded-3xl shadow-2xl overflow-hidden border border-sky-100 dark:border-slate-800 transition-colors duration-300">
+    <div class="max-w-xl mx-auto bg-white/90 dark:bg-slate-900/90 backdrop-blur-md rounded-3xl shadow-2xl overflow-hidden border border-sky-100 dark:border-slate-800 transition-colors duration-300 relative">
         
-        <!-- زر تبديل الوضع المظلم / المضيء -->
-        <div class="flex justify-end p-4 pb-0">
-            <button id="themeToggleBtn" onclick="toggleTheme()" class="flex items-center gap-2 text-xs font-bold px-3 py-1.5 rounded-xl bg-sky-100/70 dark:bg-slate-800 text-sky-900 dark:text-sky-300 hover:bg-sky-200 dark:hover:bg-slate-700 transition">
-                <i id="themeIcon" class="fa-solid fa-moon"></i>
-                <span id="themeText">الوضع المظلم</span>
+        <!-- زر التبديل المقتصر على الأيقونة فقط (شمس / هلال) -->
+        <div class="absolute top-4 left-4 z-10">
+            <button id="themeToggleBtn" onclick="toggleTheme()" 
+                    class="w-10 h-10 rounded-full flex items-center justify-center bg-sky-100/80 dark:bg-slate-800 text-sky-950 dark:text-amber-400 hover:bg-sky-200 dark:hover:bg-slate-700 transition shadow-sm border border-sky-200/50 dark:border-slate-700">
+                <i id="themeIcon" class="fa-solid fa-moon text-lg"></i>
             </button>
         </div>
 
         <!-- الهيدر مع صورة الشعار -->
-        <div class="p-6 text-center border-b border-sky-100 dark:border-slate-800 space-y-3">
-            <!-- الشعار -->
-            <img src="YOUR_LOGO_IMAGE_NAME.png" alt="صناع الحياة المنوفية" class="h-20 sm:h-24 mx-auto object-contain">
+        <div class="p-6 text-center border-b border-sky-100 dark:border-slate-800 space-y-3 pt-8">
+            <!-- الشعار: logo.png GitHub -->
+            <img src="logo.png" alt="صناع الحياة المنوفية" class="h-20 sm:h-24 mx-auto object-contain">
             
             <div class="pt-2 space-y-1">
-                <!-- العنوان الرئيسي المعدل -->
+                <!-- العنوان الرئيسي -->
                 <h1 class="text-2xl sm:text-3xl font-bold text-sky-950 dark:text-sky-400 tracking-wide">
                     قافلة 18/9 ✨
                 </h1>
@@ -189,7 +189,7 @@
         </form>
     </div>
 
-    <!-- نافذة نجاح الإرسال (بدون رابط الواتساب مؤقتاً) -->
+    <!-- نافذة نجاح الإرسال -->
     <div id="successModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm hidden flex items-center justify-center p-4 z-50">
         <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-7 max-w-sm w-full text-center shadow-2xl space-y-4 border border-sky-100 dark:border-slate-800">
             
@@ -215,32 +215,29 @@
         let fileBase64 = null;
         let fileNameVal = "";
 
-        // التبديل بين الوضع المظلم والمضيء
+        // التبديل بين الوضع المظلم والمضيء (أيقونة فقط)
         function toggleTheme() {
             const html = document.documentElement;
             const themeIcon = document.getElementById('themeIcon');
-            const themeText = document.getElementById('themeText');
 
             if (html.classList.contains('dark')) {
                 html.classList.remove('dark');
                 html.classList.add('light');
-                themeIcon.className = "fa-solid fa-moon";
-                themeText.innerText = "الوضع المظلم";
+                themeIcon.className = "fa-solid fa-moon text-lg";
                 localStorage.setItem('theme', 'light');
             } else {
                 html.classList.remove('light');
                 html.classList.add('dark');
-                themeIcon.className = "fa-solid fa-sun";
-                themeText.innerText = "الوضع المضيء";
+                themeIcon.className = "fa-solid fa-sun text-lg text-amber-400";
                 localStorage.setItem('theme', 'dark');
             }
         }
 
-        // الحفاظ على الخيار المفصل عند إعادة التحميل
+        // الحفاظ على الخيار المفضل للمستخدم
         if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
             document.documentElement.classList.add('dark');
-            document.getElementById('themeIcon').className = "fa-solid fa-sun";
-            document.getElementById('themeText').innerText = "الوضع المضيء";
+            const themeIcon = document.getElementById('themeIcon');
+            if(themeIcon) themeIcon.className = "fa-solid fa-sun text-lg text-amber-400";
         }
 
         function validateNationalId(input) {
