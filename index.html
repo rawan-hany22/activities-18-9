@@ -1,16 +1,11 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl" class="light">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>استمارة تسجيل المتطوعين - قافلة 18/9</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-        }
-    </script>
     <!-- FontAwesome icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts (Cairo) -->
@@ -21,335 +16,35 @@
         }
     </style>
 </head>
-<body class="bg-gradient-to-br from-sky-100 via-blue-50 to-orange-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 text-slate-800 dark:text-slate-100 min-h-screen py-8 px-4 sm:px-6 lg:px-8 transition-colors duration-300">
+<body class="bg-gradient-to-br from-sky-100 via-blue-50 to-orange-50 text-slate-800 min-h-screen flex items-center justify-center p-4">
 
-    <div class="max-w-xl mx-auto bg-white/90 dark:bg-slate-900/90 backdrop-blur-md rounded-3xl shadow-2xl overflow-hidden border border-sky-100 dark:border-slate-800 transition-colors duration-300 relative">
+    <div class="max-w-md w-full bg-white/90 backdrop-blur-md rounded-3xl shadow-2xl overflow-hidden border border-sky-100 p-8 text-center space-y-6">
         
-        <!-- زر التبديل المقتصر على الأيقونة فقط (شمس / هلال) -->
-        <div class="absolute top-4 left-4 z-10">
-            <button id="themeToggleBtn" onclick="toggleTheme()" 
-                    class="w-10 h-10 rounded-full flex items-center justify-center bg-sky-100/80 dark:bg-slate-800 text-sky-950 dark:text-amber-400 hover:bg-sky-200 dark:hover:bg-slate-700 transition shadow-sm border border-sky-200/50 dark:border-slate-700">
-                <i id="themeIcon" class="fa-solid fa-moon text-lg"></i>
-            </button>
+        <!-- الشعار -->
+        <img src="logo.png" alt="صناع الحياة المنوفية" class="h-20 sm:h-24 mx-auto object-contain">
+
+        <!-- أيقونة التوقف / الاكتمال -->
+        <div class="w-20 h-20 bg-amber-100 text-amber-600 rounded-full flex items-center justify-center mx-auto text-4xl shadow-inner">
+            <i class="fa-solid fa-user-check"></i>
         </div>
 
-        <!-- الهيدر مع صورة الشعار -->
-        <div class="p-6 text-center border-b border-sky-100 dark:border-slate-800 space-y-3 pt-8">
-            <img src="logo.png" alt="صناع الحياة المنوفية" class="h-20 sm:h-24 mx-auto object-contain">
-            
-            <div class="pt-2 space-y-1">
-                <h1 class="text-2xl sm:text-3xl font-bold text-sky-950 dark:text-sky-400 tracking-wide">
-                    قافلة 18/9 ✨
-                </h1>
-                <p class="text-sky-600 dark:text-sky-300 text-base sm:text-lg font-bold">
-                    استمارة تسجيل المتطوعين
-                </p>
-            </div>
+        <!-- عناوين الرسالة -->
+        <div class="space-y-2">
+            <h1 class="text-2xl font-extrabold text-sky-950">تم إغلاق الاستمارة 🎉</h1>
+            <p class="text-base font-bold text-sky-600">قافلة 18/9 ✨</p>
         </div>
 
-        <!-- الاستمارة -->
-        <form id="volunteerForm" onsubmit="handleSubmit(event)" autocomplete="off" class="p-6 sm:p-8 space-y-6">
+        <!-- نص اعتذار وتوضيح -->
+        <div class="bg-sky-50/60 border border-sky-100 rounded-2xl p-4 text-xs sm:text-sm text-slate-600 leading-relaxed font-semibold">
+            شكراً جدا لاهتمامك بس للاسف العدد اكتمل ف متعوضه إن شاء الله في القافله الجايه 🤍
+        </div>
 
-            <!-- الاسم بالكامل -->
-            <div>
-                <label for="fullName" class="block text-sm font-bold text-sky-950 dark:text-sky-200 mb-2">
-                    الاسم بالكامل <span class="text-red-400">*</span>
-                </label>
-                <div class="relative">
-                    <input type="text" id="fullName" name="fullName" autocomplete="off" required placeholder="أدخل اسمك الثلاثي أو الرباعي"
-                           class="w-full pr-10 pl-4 py-3 rounded-2xl border border-sky-200 dark:border-slate-700 bg-sky-50/40 dark:bg-slate-800/60 focus:bg-white dark:focus:bg-slate-800 focus:ring-2 focus:ring-sky-400 focus:border-sky-400 text-slate-700 dark:text-slate-100 text-sm transition">
-                    <i class="fa-solid fa-user absolute right-3.5 top-3.5 text-sky-400"></i>
-                </div>
-            </div>
+        <!-- حقوق النشر / التوقيع -->
+        <p class="text-xs text-slate-400 font-bold pt-2">
+            صناع الحياة - المنوفية
+        </p>
 
-            <!-- رقم التليفون -->
-            <div>
-                <label for="phoneNumber" class="block text-sm font-bold text-sky-950 dark:text-sky-200 mb-2">
-                    رقم التليفون (واتساب) <span class="text-red-400">*</span>
-                </label>
-                <div class="relative">
-                    <input type="tel" id="phoneNumber" name="phoneNumber" autocomplete="off" required placeholder="01XXXXXXXXX" dir="ltr"
-                           class="w-full text-right pr-10 pl-4 py-3 rounded-2xl border border-sky-200 dark:border-slate-700 bg-sky-50/40 dark:bg-slate-800/60 focus:bg-white dark:focus:bg-slate-800 focus:ring-2 focus:ring-sky-400 focus:border-sky-400 text-slate-700 dark:text-slate-100 text-sm transition">
-                    <i class="fa-solid fa-phone absolute right-3.5 top-3.5 text-sky-400"></i>
-                </div>
-            </div>
-
-            <!-- السؤال الجديد: رقم تليفون الأهل للطوارئ -->
-            <div>
-                <label for="emergencyPhone" class="block text-sm font-bold text-sky-950 dark:text-sky-200 mb-2">
-                    رقم تليفون آخر للأهل لظروف الطوارئ <span class="text-red-400">*</span>
-                </label>
-                <div class="relative">
-                    <input type="tel" id="emergencyPhone" name="emergencyPhone" autocomplete="off" required placeholder="01XXXXXXXXX" dir="ltr"
-                           class="w-full text-right pr-10 pl-4 py-3 rounded-2xl border border-sky-200 dark:border-slate-700 bg-sky-50/40 dark:bg-slate-800/60 focus:bg-white dark:focus:bg-slate-800 focus:ring-2 focus:ring-sky-400 focus:border-sky-400 text-slate-700 dark:text-slate-100 text-sm transition">
-                    <i class="fa-solid fa-phone-volume absolute right-3.5 top-3.5 text-sky-400"></i>
-                </div>
-            </div>
-
-            <!-- الرقم القومي -->
-            <div>
-                <label for="nationalId" class="block text-sm font-bold text-sky-950 dark:text-sky-200 mb-1">
-                    الرقم القومي <span class="text-red-400">*</span>
-                </label>
-                <p class="text-xs text-sky-600 dark:text-sky-400/80 mb-2">اتأكد من وجود 14 رقم</p>
-                <div class="relative">
-                    <input type="text" id="nationalId" name="nationalId" autocomplete="off" required maxlength="14" dir="ltr" placeholder=""
-                           oninput="validateNationalId(this)"
-                           class="w-full text-right pr-10 pl-4 py-3 rounded-2xl border border-sky-200 dark:border-slate-700 bg-sky-50/40 dark:bg-slate-800/60 focus:bg-white dark:focus:bg-slate-800 focus:ring-2 focus:ring-sky-400 focus:border-sky-400 text-slate-700 dark:text-slate-100 text-sm transition">
-                    <i class="fa-solid fa-id-card absolute right-3.5 top-3.5 text-sky-400"></i>
-                </div>
-                <p id="idError" class="text-red-500 dark:text-red-400 text-xs mt-1 hidden">يجب إدخال 14 رقم بالضبط.</p>
-            </div>
-
-            <hr class="border-sky-100 dark:border-slate-800 my-6">
-
-            <!-- المجال الطبي -->
-            <div>
-                <label class="block text-sm font-bold text-sky-950 dark:text-sky-200 mb-3">
-                    هل أنت في المجال الطبي؟ <span class="text-red-400">*</span>
-                </label>
-                <div class="grid grid-cols-2 gap-3">
-                    <label class="flex items-center justify-center p-3 border border-sky-200 dark:border-slate-700 rounded-2xl cursor-pointer bg-sky-50/30 dark:bg-slate-800/40 hover:bg-sky-50 dark:hover:bg-slate-800 transition has-[:checked]:border-sky-500 dark:has-[:checked]:border-sky-400 has-[:checked]:bg-sky-100/80 dark:has-[:checked]:bg-sky-900/40">
-                        <input type="radio" name="isMedical" value="نعم" required class="hidden">
-                        <span class="font-bold text-sm text-sky-900 dark:text-sky-200">نعم</span>
-                    </label>
-                    <label class="flex items-center justify-center p-3 border border-sky-200 dark:border-slate-700 rounded-2xl cursor-pointer bg-sky-50/30 dark:bg-slate-800/40 hover:bg-sky-50 dark:hover:bg-slate-800 transition has-[:checked]:border-sky-500 dark:has-[:checked]:border-sky-400 has-[:checked]:bg-sky-100/80 dark:has-[:checked]:bg-sky-900/40">
-                        <input type="radio" name="isMedical" value="لا" required class="hidden">
-                        <span class="font-bold text-sm text-sky-900 dark:text-sky-200">لا</span>
-                    </label>
-                </div>
-            </div>
-
-            <!-- قياس الضغط والسكر -->
-            <div>
-                <label class="block text-sm font-bold text-sky-950 dark:text-sky-200 mb-3">
-                    بتعرف تقيس ضغط وسكر؟ <span class="text-red-400">*</span>
-                </label>
-                <div class="grid grid-cols-2 gap-3">
-                    <label class="flex items-center justify-center p-3 border border-sky-200 dark:border-slate-700 rounded-2xl cursor-pointer bg-sky-50/30 dark:bg-slate-800/40 hover:bg-sky-50 dark:hover:bg-slate-800 transition has-[:checked]:border-sky-500 dark:has-[:checked]:border-sky-400 has-[:checked]:bg-sky-100/80 dark:has-[:checked]:bg-sky-900/40">
-                        <input type="radio" name="canMeasure" value="نعم" required class="hidden">
-                        <span class="font-bold text-sm text-sky-900 dark:text-sky-200">نعم</span>
-                    </label>
-                    <label class="flex items-center justify-center p-3 border border-sky-200 dark:border-slate-700 rounded-2xl cursor-pointer bg-sky-50/30 dark:bg-slate-800/40 hover:bg-sky-50 dark:hover:bg-slate-800 transition has-[:checked]:border-sky-500 dark:has-[:checked]:border-sky-400 has-[:checked]:bg-sky-100/80 dark:has-[:checked]:bg-sky-900/40">
-                        <input type="radio" name="canMeasure" value="لا" required class="hidden">
-                        <span class="font-bold text-sm text-sky-900 dark:text-sky-200">لا</span>
-                    </label>
-                </div>
-            </div>
-
-            <hr class="border-sky-100 dark:border-slate-800 my-6">
-
-            <!-- الأنشطة السابقة -->
-            <div>
-                <label class="block text-sm font-bold text-sky-950 dark:text-sky-200 mb-1">
-                    شاركت في إيه من الأنشطة دي قبل كده؟
-                </label>
-                <p class="text-xs text-sky-600 dark:text-sky-400/80 mb-3">يمكنك اختيار أكثر من نشاط</p>
-                
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    <label class="flex items-center p-3 border border-sky-200 dark:border-slate-700 rounded-2xl cursor-pointer bg-sky-50/30 dark:bg-slate-800/40 hover:bg-sky-50 dark:hover:bg-slate-800 transition has-[:checked]:border-sky-500 dark:has-[:checked]:border-sky-400 has-[:checked]:bg-sky-100/80 dark:has-[:checked]:bg-sky-900/40">
-                        <input type="checkbox" name="activities" value="استقبال (قافلة طبية)" class="w-4 h-4 text-sky-600 rounded focus:ring-sky-400">
-                        <span class="mr-2.5 text-sm font-bold text-sky-900 dark:text-sky-200">استقبال (قافلة طبية)</span>
-                    </label>
-
-                    <label class="flex items-center p-3 border border-sky-200 dark:border-slate-700 rounded-2xl cursor-pointer bg-sky-50/30 dark:bg-slate-800/40 hover:bg-sky-50 dark:hover:bg-slate-800 transition has-[:checked]:border-sky-500 dark:has-[:checked]:border-sky-400 has-[:checked]:bg-sky-100/80 dark:has-[:checked]:bg-sky-900/40">
-                        <input type="checkbox" name="activities" value="تنظيم (قافلة طبية)" class="w-4 h-4 text-sky-600 rounded focus:ring-sky-400">
-                        <span class="mr-2.5 text-sm font-bold text-sky-900 dark:text-sky-200">تنظيم (قافلة طبية)</span>
-                    </label>
-
-                    <label class="flex items-center p-3 border border-sky-200 dark:border-slate-700 rounded-2xl cursor-pointer bg-sky-50/30 dark:bg-slate-800/40 hover:bg-sky-50 dark:hover:bg-slate-800 transition has-[:checked]:border-sky-500 dark:has-[:checked]:border-sky-400 has-[:checked]:bg-sky-100/80 dark:has-[:checked]:bg-sky-900/40">
-                        <input type="checkbox" name="activities" value="صيدلية (قافلة طبية)" class="w-4 h-4 text-sky-600 rounded focus:ring-sky-400">
-                        <span class="mr-2.5 text-sm font-bold text-sky-900 dark:text-sky-200">صيدلية (قافلة طبية)</span>
-                    </label>
-
-                    <label class="flex items-center p-3 border border-sky-200 dark:border-slate-700 rounded-2xl cursor-pointer bg-sky-50/30 dark:bg-slate-800/40 hover:bg-sky-50 dark:hover:bg-slate-800 transition has-[:checked]:border-sky-500 dark:has-[:checked]:border-sky-400 has-[:checked]:bg-sky-100/80 dark:has-[:checked]:bg-sky-900/40">
-                        <input type="checkbox" name="activities" value="توعية (قافلة طبية)" class="w-4 h-4 text-sky-600 rounded focus:ring-sky-400">
-                        <span class="mr-2.5 text-sm font-bold text-sky-900 dark:text-sky-200">توعية (قافلة طبية)</span>
-                    </label>
-
-                    <label class="flex items-center p-3 border border-sky-200 dark:border-slate-700 rounded-2xl cursor-pointer bg-sky-50/30 dark:bg-slate-800/40 hover:bg-sky-50 dark:hover:bg-slate-800 transition has-[:checked]:border-sky-500 dark:has-[:checked]:border-sky-400 has-[:checked]:bg-sky-100/80 dark:has-[:checked]:bg-sky-900/40">
-                        <input type="checkbox" name="activities" value="معرض" class="w-4 h-4 text-sky-600 rounded focus:ring-sky-400">
-                        <span class="mr-2.5 text-sm font-bold text-sky-900 dark:text-sky-200">معرض</span>
-                    </label>
-
-                    <label class="flex items-center p-3 border border-sky-200 dark:border-slate-700 rounded-2xl cursor-pointer bg-sky-50/30 dark:bg-slate-800/40 hover:bg-sky-50 dark:hover:bg-slate-800 transition has-[:checked]:border-sky-500 dark:has-[:checked]:border-sky-400 has-[:checked]:bg-sky-100/80 dark:has-[:checked]:bg-sky-900/40">
-                        <input type="checkbox" name="activities" value="أبحاث" class="w-4 h-4 text-sky-600 rounded focus:ring-sky-400">
-                        <span class="mr-2.5 text-sm font-bold text-sky-900 dark:text-sky-200">أبحاث</span>
-                    </label>
-
-                    <label class="flex items-center p-3 border border-sky-200 dark:border-slate-700 rounded-2xl cursor-pointer bg-sky-50/30 dark:bg-slate-800/40 hover:bg-sky-50 dark:hover:bg-slate-800 transition has-[:checked]:border-sky-500 dark:has-[:checked]:border-sky-400 has-[:checked]:bg-sky-100/80 dark:has-[:checked]:bg-sky-900/40 sm:col-span-2">
-                        <input type="checkbox" name="activities" value="دوي" class="w-4 h-4 text-sky-600 rounded focus:ring-sky-400">
-                        <span class="mr-2.5 text-sm font-bold text-sky-900 dark:text-sky-200">دوي</span>
-                    </label>
-                </div>
-            </div>
-
-            <!-- رفع صورة البطاقة الشخصية -->
-            <div>
-                <label class="block text-sm font-bold text-sky-950 dark:text-sky-200 mb-1">
-                    ارفع صورة البطاقة (وجه وظهر) <span class="text-red-400">*</span>
-                </label>
-                <p class="text-xs text-sky-600 dark:text-sky-400/80 mb-2">يمكنك رفع صورة من هاتفك أو ملف PDF</p>
-                <div class="p-5 border-2 border-sky-200 dark:border-slate-700 border-dashed rounded-2xl bg-sky-50/30 dark:bg-slate-800/30 hover:bg-sky-50 dark:hover:bg-slate-800 transition text-center">
-                    <i class="fa-solid fa-id-card-clip text-3xl text-sky-500 mb-2"></i>
-                    <div class="text-xs text-sky-800 dark:text-sky-200 font-medium">
-                        <label for="imageUpload" class="cursor-pointer text-sky-600 dark:text-sky-400 font-bold hover:underline">
-                            اختر صورة البطاقة أو ملف الـ PDF
-                            <input id="imageUpload" name="imageUpload" type="file" accept="image/*,application/pdf" required class="sr-only" onchange="handleFile(this)">
-                        </label>
-                    </div>
-                    <p id="fileName" class="text-xs text-slate-400 dark:text-slate-500 mt-1">الحد الأقصى 10 ميجابايت</p>
-                </div>
-            </div>
-
-            <!-- زر الإرسال -->
-            <button type="submit" id="submitBtn" class="w-full bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-600 hover:to-blue-700 text-white font-bold py-3.5 rounded-2xl shadow-lg shadow-sky-200 dark:shadow-none transition duration-200 text-base flex items-center justify-center gap-2">
-                <i class="fa-solid fa-paper-plane"></i>
-                <span>إرسال الاستمارة</span>
-            </button>
-        </form>
     </div>
 
-    <!-- نافذة نجاح الإرسال -->
-    <div id="successModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm hidden flex items-center justify-center p-4 z-50">
-        <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-7 max-w-sm w-full text-center shadow-2xl space-y-4 border border-sky-100 dark:border-slate-800">
-            
-            <div class="w-16 h-16 bg-emerald-100 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 rounded-full flex items-center justify-center mx-auto text-3xl">
-                <i class="fa-solid fa-circle-check"></i>
-            </div>
-
-            <h2 class="text-xl font-extrabold text-sky-950 dark:text-sky-200">تم إرسال بياناتك بنجاح! 🎉</h2>
-            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed font-semibold">
-                نتمنى إنه يكون يوم لذيذ وتجربة لذيذة عليك وتسيب أثر طيب 🤍
-            </p>
-
-            <div class="pt-2">
-                <a href="https://chat.whatsapp.com/GFUzqgKvbcn88Odr9RA9tT?s=cl&p=a&mlu=4&ilr=4" target="_blank" rel="noopener noreferrer" 
-                   class="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3 px-4 rounded-xl text-xs transition flex items-center justify-center gap-2 shadow-md">
-                    <i class="fa-brands fa-whatsapp text-lg"></i>
-                    <span>انضم لجروب الواتساب الخاص بالقافلة</span>
-                </a>
-            </div>
-
-            <button onclick="document.getElementById('successModal').classList.add('hidden')"
-                    class="w-full bg-sky-100 dark:bg-slate-800 text-sky-950 dark:text-sky-200 font-bold py-2.5 rounded-xl text-xs transition border border-sky-200/50 dark:border-slate-700 mt-1">
-                إغلاق
-            </button>
-
-        </div>
-    </div>
-
-    <script>
-        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwo5EFCdCX52vxvdjktf_u-fmzWFkRwgdiX5pCRZ5-JCwmN9LVLaStT8FLRCTpEbscaLw/exec"; 
-        let fileBase64 = null;
-        let fileNameVal = "";
-
-        function toggleTheme() {
-            const html = document.documentElement;
-            const themeIcon = document.getElementById('themeIcon');
-
-            if (html.classList.contains('dark')) {
-                html.classList.remove('dark');
-                html.classList.add('light');
-                themeIcon.className = "fa-solid fa-moon text-lg";
-                localStorage.setItem('theme', 'light');
-            } else {
-                html.classList.remove('light');
-                html.classList.add('dark');
-                themeIcon.className = "fa-solid fa-sun text-lg text-amber-400";
-                localStorage.setItem('theme', 'dark');
-            }
-        }
-
-        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            document.documentElement.classList.add('dark');
-            const themeIcon = document.getElementById('themeIcon');
-            if(themeIcon) themeIcon.className = "fa-solid fa-sun text-lg text-amber-400";
-        }
-
-        function validateNationalId(input) {
-            const idError = document.getElementById('idError');
-            input.value = input.value.replace(/[^0-9]/g, '');
-            
-            if (input.value.length > 0 && input.value.length !== 14) {
-                idError.classList.remove('hidden');
-                input.setCustomValidity('الرقم القومي يجب أن يتكون من 14 رقم بالضبط');
-            } else {
-                idError.classList.add('hidden');
-                input.setCustomValidity('');
-            }
-        }
-
-        function handleFile(input) {
-            const fileNameElem = document.getElementById('fileName');
-            if (input.files && input.files[0]) {
-                const file = input.files[0];
-                
-                fileNameVal = file.name;
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    fileBase64 = e.target.result;
-                };
-                reader.readAsDataURL(file);
-
-                fileNameElem.innerText = `تم اختيار: ${file.name}`;
-                fileNameElem.classList.add('text-sky-600', 'dark:text-sky-400', 'font-bold');
-            }
-        }
-
-        async function handleSubmit(e) {
-            e.preventDefault();
-
-            const idInput = document.getElementById('nationalId');
-            if (idInput.value.length !== 14) {
-                document.getElementById('idError').classList.remove('hidden');
-                idInput.focus();
-                return;
-            }
-
-            const selectedActivities = Array.from(document.querySelectorAll('input[name="activities"]:checked'))
-                                            .map(cb => cb.value)
-                                            .join(', ');
-
-            const submitBtn = document.getElementById('submitBtn');
-            const originalBtnHtml = submitBtn.innerHTML;
-            submitBtn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> <span>جاري الإرسال...</span>`;
-            submitBtn.disabled = true;
-
-            const formData = {
-                fullName: document.getElementById('fullName').value,
-                phoneNumber: document.getElementById('phoneNumber').value,
-                emergencyPhone: document.getElementById('emergencyPhone').value,
-                nationalId: idInput.value,
-                isMedical: document.querySelector('input[name="isMedical"]:checked')?.value || '',
-                canMeasure: document.querySelector('input[name="canMeasure"]:checked')?.value || '',
-                activities: selectedActivities,
-                fileData: fileBase64,
-                fileName: fileNameVal
-            };
-
-            try {
-                await fetch(SCRIPT_URL, {
-                    method: 'POST',
-                    mode: 'no-cors',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(formData)
-                });
-
-                document.getElementById('successModal').classList.remove('hidden');
-                document.getElementById('volunteerForm').reset();
-                document.getElementById('fileName').innerText = 'الحد الأقصى 10 ميجابايت';
-                document.getElementById('fileName').classList.remove('text-sky-600', 'dark:text-sky-400', 'font-bold');
-                fileBase64 = null;
-
-            } catch (error) {
-                alert('حدث خطأ أثناء الإرسال، برجاء المحاولة لاحقاً.');
-                console.error(error);
-            } finally {
-                submitBtn.innerHTML = originalBtnHtml;
-                submitBtn.disabled = false;
-            }
-        }
-    </script>
 </body>
 </html>
